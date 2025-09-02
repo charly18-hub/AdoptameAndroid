@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="turqueza">#40807E</color>
+    <color name="azul_bg">#2591b5</color>
+    <color name="azul_start">#339abb</color>
+    <color name="azul">#339abb</color>
+    <color name="azulRegister">#b9dee7</color>
+    <color name="azulLogin">#718fa9</color>
+
+
+
+
+</resources>

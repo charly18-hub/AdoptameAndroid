@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|center_vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_height="600dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/bg1"
+        tools:ignore="MissingConstraints">
+        
+
+        <TextView
+            android:id="@+id/txtDialog1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:textColor="@color/black"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:text="Se requiere llenar el formato de adopcion por si uno de los perritos disponibles te interesa y agilizar el proceso"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

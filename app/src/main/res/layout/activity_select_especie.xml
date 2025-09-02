@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SelectEspecieActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/azul_bg"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_especie"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:fontFamily="casual"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageViewCat"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/cat11"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circle" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageViewDog"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/dog2"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circle" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

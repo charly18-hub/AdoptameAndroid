@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentsFormatoAdopcion.FormularioFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColor="@color/turqueza"
+            android:fontFamily="casual"
+            android:text="Nombre"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/nombre"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:fontFamily="casual"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Email"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+            android:id="@+id/email"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Edad"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+            android:id="@+id/edad"
+            android:inputType="number"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Ocupacion"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+            android:id="@+id/ocupacion"
+            android:inputType="text"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:fontFamily="casual"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/Ciudad"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/edittext_borde_redondo_form"
+                    android:backgroundTint="@color/azul_bg"
+                    android:fontFamily="casual"
+                    android:hint="Ciudad"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:textColorHint="@color/white" />
+
+                <EditText
+                    android:id="@+id/Estado"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/edittext_borde_redondo_form"
+                    android:backgroundTint="@color/azul_bg"
+                    android:fontFamily="casual"
+                    android:hint="Estado"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:textColorHint="@color/white" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Calle"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+            android:id="@+id/Calle"
+            android:inputType="text"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="casual"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Numero/Edificio"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+            android:id="@+id/Num_Edif"
+            android:inputType="text"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="casual"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Colonia"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+            android:id="@+id/Colonia"
+            android:inputType="text"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="casual"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Codigo Postal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+            android:id="@+id/CP"
+            android:inputType="number"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="casual"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Alcaldia"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+            android:id="@+id/Alcaldia"
+            android:backgroundTint="@color/azul_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:fontFamily="casual"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="0dp"
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_borde_redondo_form"
+            android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Entre Calles"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/EntreCalles"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="WhatsApp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/whatsApp"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="phone" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Donde Vives,¿es casa o departamento propio?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento1"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Cuanto tiempo pasara el perro sin compañia humana?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento2"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Que edades tienen las personas que vivirian con el?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento3"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Tienes mas perros?,¿Cuantos?,¿De que edades?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+
+            <EditText
+                android:id="@+id/complemento4"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Haz tenido perros antes?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento5"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Te comprometes a hacerte cargo de el el resto de su vida una medida de 15 años?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="15dp"/>
+
+            <EditText
+                android:id="@+id/complemento6"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Tienes capacidad economica para mantenerlo?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+
+            <EditText
+                android:id="@+id/complemento7"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Donde dormira el perro?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento8"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Cuantas veces saldra a pasear?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento9"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Si sales de vacaciones, ¿Con quien dejarias el perro?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento10"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="¿Porque quieres adoptar este perro?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento11"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/turqueza"
+                android:fontFamily="casual"
+                android:text="Que pasaria con el perro si llega a romper, ladrar en exceso, orinar,etc?"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"/>
+
+            <EditText
+                android:id="@+id/complemento12"
+                android:backgroundTint="@color/azul_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:fontFamily="casual"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:textColorHint="@color/white"
+                android:background="@drawable/edittext_borde_redondo_form"
+                android:inputType="text" />
+
+            <TextView
+            android:id="@+id/siguiente1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/turqueza"
+            android:text="Siguiente"
+            android:textSize="30dp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:fontFamily="casual"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
