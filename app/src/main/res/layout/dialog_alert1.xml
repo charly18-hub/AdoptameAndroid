@@ -1,31 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal|center_vertical">
+    android:layout_height="wrap_content"
+    android:padding="20dp">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="400dp"
-        android:layout_height="600dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:background="@drawable/bg1"
-        tools:ignore="MissingConstraints">
-        
+    <!-- Fondo azul -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DFF4FB"
+        android:padding="24dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtDialog1"
+        <!-- Perrito superior -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="end"
+            android:src="@drawable/dog2"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Tarjeta blanca -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="casual"
-            android:textColor="@color/black"
-            android:layout_marginRight="50dp"
-            android:layout_marginLeft="30dp"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:text="Se requiere llenar el formato de adopcion por si uno de los perritos disponibles te interesa y agilizar el proceso"/>
+            android:background="@drawable/db_dialog_card"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Formato de adopción"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1F2D3D"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Para poder continuar, necesitamos que completes el formato de adopción. Esto nos permite cuidar mejor a cada perrito y agilizar el proceso."
+                android:textSize="14sp"
+                android:textColor="#7A8B9C"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Perrito inferior -->
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="start"
+            android:src="@drawable/dog1"
+            android:layout_marginTop="10dp"/>
+
+
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

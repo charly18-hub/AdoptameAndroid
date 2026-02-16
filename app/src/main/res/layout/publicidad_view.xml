@@ -1,26 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal|center_vertical">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_video_dialog"
+    android:clipToOutline="true">
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:orientation="vertical"
-        android:layout_width="400dp"
-        android:layout_height="600dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:background="@drawable/bg1"
-        tools:ignore="MissingConstraints">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <VideoView
-            android:id="@+id/idCenter"
+        <!-- Video -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="20dp" />
+            android:layout_height="180dp">
+
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <!-- Botón cerrar -->
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="end|top"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_border_green"
+                android:src="@drawable/ic_arrow_back"
+                android:padding="6dp"/>
+
+        </FrameLayout>
+
+        <!-- Texto -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Purina"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1F2D3D"
+            android:padding="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Juntos la vida es mejor"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:textSize="13sp"
+            android:textColor="#7A8B9C"
+            android:paddingHorizontal="12dp"/>
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

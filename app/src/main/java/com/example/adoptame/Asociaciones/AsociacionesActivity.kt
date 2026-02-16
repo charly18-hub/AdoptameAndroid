@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adoptame.Adapter.RecyclerAdapterAsociacion
 import com.example.adoptame.Desktop.DesktopActivity
@@ -14,71 +14,69 @@ import com.example.adoptame.R
 
 class AsociacionesActivity : AppCompatActivity() {
 
-    // on below line we are creating variables
-    // for our swipe to refresh layout,
-    // recycler view, adapter and list.
-    lateinit var courseRV: RecyclerView
-    lateinit var courseRVAdapter: RecyclerAdapterAsociacion
-    lateinit var courseList: ArrayList<ModalAsociacion>
-
+    private lateinit var courseRV: RecyclerView
+    private lateinit var courseRVAdapter: RecyclerAdapterAsociacion
+    private lateinit var courseList: ArrayList<ModalAsociacion>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_asociaciones)
-        // on below line we are initializing
-        // our views with their ids.
-        courseRV = findViewById(R.id.idRVCourses)
 
-        // on below line we are initializing our list
+        // RecyclerView
+        courseRV = findViewById(R.id.idRVCourses)
+        courseRV.layoutManager = LinearLayoutManager(this)
+        courseRV.setHasFixedSize(true)
+
+        // Data
         courseList = ArrayList()
 
-        // on below line we are creating a variable
-        // for our grid layout manager and specifying
-        // column count as 2
-        val layoutManager = GridLayoutManager(this, 2)
+        courseList.add(
+            ModalAsociacion(
+                name = "Adopta Huellitas",
+                city = "Monterrey",
+                dogs = 34,
+                cats = 12,
+                logo = R.drawable.adopta_huellitas,
+                verified = true
+            )
+        )
 
-        courseRV.layoutManager = layoutManager
+        courseList.add(
+            ModalAsociacion(
+                name = "Patitas de Amor",
+                city = "CDMX",
+                dogs = 10,
+                cats = 8,
+                logo = R.drawable.patitas_amor,
+                verified = false
+            )
+        )
 
-        // on below line we are initializing our adapter
+        // Adapter
         courseRVAdapter = RecyclerAdapterAsociacion(courseList, this)
-
-        // on below line we are setting
-        // adapter to our recycler view.
         courseRV.adapter = courseRVAdapter
 
-        // on below line we are adding data to our list
-        courseList.add(ModalAsociacion("Adopta Huellitas", R.drawable.adopta_huellitas))
-        courseList.add(ModalAsociacion("Adopta un Angel", R.drawable.adopta_anegl))
-        courseList.add(ModalAsociacion("Patitas de Amor", R.drawable.patitas_amor))
-        courseList.add(ModalAsociacion("Zadrigman", R.drawable.zadrigman))
-        courseList.add(ModalAsociacion("Adopta un Angel", R.drawable.adopta_anegl))
-
-        // on below line we are notifying adapter
-        // that data has been updated.
-        courseRVAdapter.notifyDataSetChanged()
-
-        navHome()
+        //navHome()
     }
 
-    private fun navHome(){
+    /*private fun navHome() {
 
         val fab: View = findViewById(R.id.floatBack1)
-        fab.setOnClickListener { view ->
-
-            val intentHome = Intent(this, DesktopActivity::class.java)
-            intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intentHome)
-            finish()
-
-
-            }
-        val btnBack: View = findViewById(R.id.btnBack)
-        btnBack.setOnClickListener {
-            val intentHome = Intent(this, DesktopActivity::class.java)
-            startActivity(intentHome)
-            finish()
+        fab.setOnClickListener {
+            goHome()
         }
 
+        val btnBack: View = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener {
+            goHome()
+        }
+    }*/
+
+    private fun goHome() {
+        val intent = Intent(this, DesktopActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
     }
 }

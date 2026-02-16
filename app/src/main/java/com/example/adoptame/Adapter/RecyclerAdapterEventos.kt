@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.adoptame.Modal.ModalEventos
 import com.example.adoptame.R
 
@@ -34,8 +35,15 @@ private val context: Context
 
     override fun onBindViewHolder(holder: RecyclerAdapterEventos.EventosViewHolder, position: Int) {
         // on below line we are setting data to our text view and our image view.
-        holder.nameEvento.text = eventosList.get(position).courseEvento
-        holder.imgEvento.setImageResource(eventosList.get(position).courseImg)
+        holder.nameEvento.text = eventosList.get(position).nameEvento
+        Glide.with(holder.itemView.context)
+            .load(eventosList.get(position).courseImg)
+            .centerCrop()
+            .into(holder.imgEvento)
+        //holder.imgEvento.setImageResource(eventosList.get(position).courseImg)
+        holder.locationEvento.text = eventosList.get(position).location
+        holder.dateEvent.text = eventosList.get(position).date
+        //holder.petsEvent.text = eventosList.get(position).pets
     }
 
     override fun getItemCount(): Int {
@@ -46,7 +54,10 @@ private val context: Context
 
     class EventosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // on below line we are initializing our course name text view and our image view.
-        val nameEvento: TextView = itemView.findViewById(R.id.idName)
-        val imgEvento: ImageView = itemView.findViewById(R.id.idEvento)
+        val nameEvento: TextView = itemView.findViewById(R.id.tvTitle)
+        val imgEvento: ImageView = itemView.findViewById(R.id.eventImage)
+        var locationEvento: TextView = itemView.findViewById(R.id.tvLocation)
+        var dateEvent: TextView = itemView.findViewById(R.id.tvDate)
+        //var petsEvent: TextView = itemView.findViewById(R.id.tvPets)
        }
 }

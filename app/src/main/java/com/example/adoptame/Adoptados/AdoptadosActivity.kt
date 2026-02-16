@@ -1,13 +1,17 @@
 package com.example.adoptame.Adoptados
 
+import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.service.controls.actions.FloatAction
 import android.view.View
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -81,44 +85,24 @@ class AdoptadosActivity : AppCompatActivity() {
         }, tiempoTranscurrir.toLong()) //define el tiempo.
     }
     private fun showDefaultDialog() {
-        val alertDialog = AlertDialog.Builder(this)
-        val inflater = this.layoutInflater;
-        val dialogView = inflater.inflate(R.layout.publicidad_view, null)
-        // Setup VideoView with MediaController
-        val videoView = dialogView.findViewById<VideoView>(R.id.idCenter)
-        val mediaController = MediaController(this)
-        mediaController.setAnchorView(videoView)
-        videoView.setMediaController(mediaController)
-        // Set video path and start playing
-        try {
-            val videoPath = "android.resource://" + packageName + "/" + R.raw.croquetas
-            videoView.setVideoURI(Uri.parse(videoPath))
-            videoView.start()
-        } catch (e: Exception) {
-            // Fallback if video doesn't exist
-            videoView.visibility = View.GONE
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.publicidad_view)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val videoView = dialog.findViewById<VideoView>(R.id.videoView)
+        val btnClose = dialog.findViewById<ImageView>(R.id.btnClose)
+
+        val videoPath = "android.resource://$packageName/${R.raw.croquetas}"
+        videoView.setVideoURI(Uri.parse(videoPath))
+        videoView.start()
+
+        btnClose.setOnClickListener {
+            videoView.stopPlayback()
+            dialog.dismiss()
         }
-        
-        val dialog = alertDialog.apply {
-            setView(dialogView)
-            setPositiveButton("Cerrar") { _: DialogInterface?, _: Int ->
-            }
-            setOnDismissListener {
-            }
-        }.create()
-        
-        // Show dialog first
+
         dialog.show()
-        
-        // Disable buttons initially
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = false
-
-        // Enable buttons after 20 seconds
-        Handler().postDelayed({
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = true
-        }, 6000) // 20 seconds
     }
-
 
     private fun navHome(){
         val btnBack: View = findViewById(R.id.btnBack)

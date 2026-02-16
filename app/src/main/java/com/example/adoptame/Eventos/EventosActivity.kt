@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adoptame.Adapter.RecyclerAdapterAsociacion
 import com.example.adoptame.Adapter.RecyclerAdapterEventos
@@ -38,8 +39,11 @@ class EventosActivity : AppCompatActivity() {
 
         // on below line we are initializing our list
         eventosList = ArrayList()
+        EventosRV.layoutManager = LinearLayoutManager(this)
+        eventosRVAdapter = RecyclerAdapterEventos(eventosList, this)
+        EventosRV.adapter = eventosRVAdapter
 
-        // on below line we are creating a variable
+      /*  // on below line we are creating a variable
         // for our grid layout manager and specifying
         // column count as 2
         val layoutManager = GridLayoutManager(this, 1)
@@ -51,14 +55,27 @@ class EventosActivity : AppCompatActivity() {
 
         // on below line we are setting
         // adapter to our recycler view.
-        EventosRV.adapter = eventosRVAdapter
+        EventosRV.adapter = eventosRVAdapter*/
 
-        // on below line we are adding data to our list
-        eventosList.add(ModalEventos("Adopta Huellitas", R.drawable.adopta_huellitas))
-        eventosList.add(ModalEventos("Adopta un Angel", R.drawable.adopta_anegl))
-        eventosList.add(ModalEventos("Patitas de Amor", R.drawable.patitas_amor))
-        eventosList.add(ModalEventos("Zadrigman", R.drawable.zadrigman))
-        eventosList.add(ModalEventos("Adopta un Angel", R.drawable.adopta_anegl))
+        eventosList.add(
+            ModalEventos(
+                nameEvento = "Adopta Huellitas",
+                location = "Parque Fundidora",
+                date = "Sáb 19 Feb · 11:00 am",
+                pets = "12",
+                courseImg = R.drawable.adopta_huellitas,
+            )
+        )
+
+        eventosList.add(
+            ModalEventos(
+                nameEvento = "Adopta Huellitas",
+                location = "Parque Mexico",
+                date = "Sáb 6 Feb · 11:00 am",
+                pets = "12",
+                courseImg = R.drawable.adopta_huellitas,
+            )
+        )
 
         // on below line we are notifying adapter
         // that data has been updated.

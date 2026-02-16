@@ -35,8 +35,8 @@ class RecyclerAdapterAsociacion(
 
     override fun onBindViewHolder(holder: RecyclerAdapterAsociacion.CourseViewHolder, position: Int) {
         // on below line we are setting data to our text view and our image view.
-        holder.courseNameTV.text = courseList.get(position).courseName
-        holder.courseIV.setImageResource(courseList.get(position).courseImg)
+        holder.courseNameTV.text = courseList.get(position).name
+        holder.courseIV.setImageResource(courseList.get(position).logo)
     }
 
     override fun getItemCount(): Int {
@@ -47,7 +47,7 @@ class RecyclerAdapterAsociacion(
 
     class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // on below line we are initializing our course name text view and our image view.
-        val courseNameTV: TextView = itemView.findViewById(R.id.idTVCourse)
-        val courseIV: ImageView = itemView.findViewById(R.id.idIVCourse)
+        val courseNameTV: TextView = itemView.findViewById(R.id.txtName)
+        val courseIV: ImageView = itemView.findViewById(R.id.imgLogo)
     }
 }

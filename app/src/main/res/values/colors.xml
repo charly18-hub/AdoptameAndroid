@@ -9,6 +9,25 @@
     <color name="azulRegister">#b9dee7</color>
     <color name="azulLogin">#718fa9</color>
 
+        <!-- Brand -->
+        <color name="primary">#1F8EAA</color>
+        <color name="secondary">#3CBFA6</color>
+        <color name="accent">#FF7A5C</color>
+
+        <!-- Backgrounds -->
+        <color name="bg_main">#F5FAFC</color>
+        <color name="bg_card">#FFFFFF</color>
+        <color name="bg_header">#1F8EAA</color>
+
+        <!-- Text -->
+        <color name="text_primary">#1B2B34</color>
+        <color name="text_secondary">#6B7C85</color>
+        <color name="text_white">#FFFFFF</color>
+
+        <!-- States -->
+        <color name="success">#3CBFA6</color>
+        <color name="warning">#FFC857</color>
+        <color name="error">#E53935</color>
 
 
 
