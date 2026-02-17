@@ -58,12 +58,21 @@ class AdoptadosActivity : AppCompatActivity() {
         adoptadosRV.layoutManager = layoutManager
         adoptadosRVAdapter = RecyclerAdapterAdoptados(adoptadosList, this)
         adoptadosRV.adapter = adoptadosRVAdapter
-        adoptadosList.add(ModalAdoptados("Guera", R.drawable.bebe2,"2 meses", "Mix Chihuahua","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Spike", R.drawable.bebe2, "4 Años", "Beagle","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Chocolata", R.drawable.bebe2,"6 Meses","Mix Pastor","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Chaparra", R.drawable.bebe2,"8 meses", "Mix Beagle","Enviar Solicitud"))
+
+        Handler().postDelayed({
+
+
+        adoptadosList.add(ModalAdoptados("Guera", R.drawable.pet,"2 meses", "Mix Chihuahua","Enviar Solicitud"))
+        adoptadosList.add(ModalAdoptados("Spike", R.drawable.pet, "4 Años", "Beagle","Enviar Solicitud"))
+        adoptadosList.add(ModalAdoptados("Chocolata", R.drawable.pet,"6 Meses","Mix Pastor","Enviar Solicitud"))
+        adoptadosList.add(ModalAdoptados("Chaparra", R.drawable.pet,"8 meses", "Mix Beagle","Enviar Solicitud"))
+        adoptadosRVAdapter.stopLoading()   // 👈 AQUÍ SE QUITA EL SKELETON
         adoptadosRVAdapter.notifyDataSetChanged()
+
+
+        },1500)
     }
+
     private fun initReciclerViewCats(){
         adoptadosRV = findViewById(R.id.idRVCourses)
         adoptadosList = ArrayList()
@@ -76,6 +85,7 @@ class AdoptadosActivity : AppCompatActivity() {
         adoptadosList.add(ModalAdoptados("Chocolata", R.drawable.cat1,"6 Meses","Mix Pastor","Enviar Solicitud"))
         adoptadosList.add(ModalAdoptados("Chaparra", R.drawable.cat1,"8 meses", "Mix Beagle","Enviar Solicitud"))
         adoptadosRVAdapter.notifyDataSetChanged()
+
     }
     private fun timeDialog(){
         val tiempoTranscurrir = 1000 //1 segundo, 1000 millisegundos.

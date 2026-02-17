@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("org.jetbrains.kotlin.kapt")
-
+    id("kotlin-kapt")
 }
 
 android {
@@ -15,7 +14,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -28,43 +26,40 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
-    }
-    sourceSets {
-        getByName("main") {
-            assets {
-                srcDirs("src/main/assets")
-            }
-        }
     }
 }
 
 dependencies {
 
+    // Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    // Recycler
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
+
+    // Lottie
+    implementation("com.airbnb.android:lottie:3.4.0")
+
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-
-    kapt("com.github.bumptech.glide:compiler:4.16.0")
-
-    //lottie animate
-    implementation("com.airbnb.android:lottie:3.4.0")
-
-    implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
-
 }

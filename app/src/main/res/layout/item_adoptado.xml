@@ -1,119 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- comentarios de desarrollo -->
-<!-- adjustViewBounds respeta proporciones -->
-<!-- scaleType="centerCrop" cubre el ancho sin deformar) -->
-
-<androidx.cardview.widget.CardView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="12dp"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="6dp"
-    app:cardUseCompatPadding="true">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <FrameLayout
+        <!-- Skeleton -->
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/idImg"
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|end"
-                android:layout_margin="12dp"
-                android:orientation="horizontal"
-                android:padding="6dp"
-                android:background="@drawable/bg_white_round">
+            <include layout="@layout/item_adoptado_skeleton"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
-                <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:src="@drawable/ic_favorite"
-                    app:tint="#FF5A5F"/>
-
-                <TextView
-                    android:id="@+id/idCountView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="120"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:textColor="#FF5A5F"
-                    android:layout_marginStart="4dp"/>
-            </LinearLayout>
-
-        </FrameLayout>
-
-        <LinearLayout
+        <!-- Card REAL -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardReal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/idName"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Guera"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#1F2D3D"/>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/idEdad"
-                    android:text="2 meses"
-                    android:textSize="12sp" android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#7A8B9C"/>
-
-                <TextView
-                    android:id="@+id/idRaza"
-                    android:text="Mix Chihuahua"
-                    android:textSize="12sp"
-                    android:paddingLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#7A8B9C"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/btnEnviarSolicitud"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
             android:layout_margin="12dp"
-            android:gravity="center"
-            android:text="🤍 Adoptar"
-            android:textStyle="bold"
-            android:textColor="#2FBF71"
-            android:background="@drawable/bg_border_green"/>
+            android:visibility="gone"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true">
 
-    </LinearLayout>
+            <include layout="@layout/item_adoptado_real"/>
 
-</androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>

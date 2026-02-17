@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <!-- Imagen -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/idImg"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_skeleton"
+            />
+        <!-- Likes -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="12dp"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            android:background="@drawable/bg_border_green">
+
+            <TextView
+                android:id="@+id/idCountView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="12"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                />
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_favorite"/>
+
+        </LinearLayout>
+    </FrameLayout>
+    <!-- Nombre -->
+    <TextView
+    android:id="@+id/idName"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="12dp"
+    android:textSize="20dp"
+    android:textColor="@color/text_primary"
+    android:textStyle="bold"
+    android:layout_marginHorizontal="32dp"
+        />
+        <!-- Edad y raza -->
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/raza"
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:paddingLeft="10dp"
+        android:textSize="10dp"
+        android:text="mix chiuahua"
+        />
+    <TextView
+        android:id="@+id/edad"
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:textSize="10dp"
+        android:text="8 meses"
+        />
+
+    </LinearLayout>
+        <!-- Botón -->
+    <TextView
+
+        android:id="@+id/btnEnviarSolicitud"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_border_green"
+        android:gravity="center_horizontal|center_vertical" />
+    </LinearLayout>
