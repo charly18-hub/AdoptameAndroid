@@ -8,67 +8,23 @@
     app:cardCornerRadius="12dp"
     app:cardElevation="6dp">
 
+    <!-- Skeleton -->
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayoutAsociacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/item_asociacion_skeletor"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <!-- Card REAL -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <!-- Logo -->
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
-            android:background="@drawable/bg_redondo"
-            android:clipToOutline="true"/>
-
-        <!-- Info -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingStart="12dp">
-
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:text="Adopta Huellitas"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtCity"
-                android:text="📍 Monterrey"
-                android:textSize="13sp"
-                android:textColor="@color/black"
-                android:layout_height="20dp"
-                android:layout_width="match_parent"/>
-
-            <TextView
-                android:id="@+id/txtAnimals"
-                android:text="🐶 34   🐱 12"
-                android:textSize="13sp"
-                android:textColor="@color/black"
-                android:layout_height="20dp"
-                android:layout_width="match_parent"/>
-
-        </LinearLayout>
-
-        <!-- Status -->
-        <TextView
-            android:id="@+id/txtVerified"
-            android:text="✔"
-            android:textColor="@color/azulRegister"
-            android:textSize="18sp"
-            android:layout_gravity="top"
-            android:layout_height="20dp"
-            android:layout_width="20dp"/>
-
+        <include layout="@layout/item_asociacion_real"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

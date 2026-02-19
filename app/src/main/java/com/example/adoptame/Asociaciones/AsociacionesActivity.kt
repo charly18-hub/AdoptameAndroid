@@ -2,6 +2,7 @@ package com.example.adoptame.Asociaciones
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,9 +28,15 @@ class AsociacionesActivity : AppCompatActivity() {
         courseRV = findViewById(R.id.idRVCourses)
         courseRV.layoutManager = LinearLayoutManager(this)
         courseRV.setHasFixedSize(true)
-
         // Data
         courseList = ArrayList()
+
+        // Adapter
+        courseRVAdapter = RecyclerAdapterAsociacion(courseList, this)
+        courseRV.adapter = courseRVAdapter
+
+        Handler().postDelayed({
+
 
         courseList.add(
             ModalAsociacion(
@@ -52,12 +59,10 @@ class AsociacionesActivity : AppCompatActivity() {
                 verified = false
             )
         )
+            courseRVAdapter.stopLoading()   // ← IMPORTANTE
+            courseRVAdapter.notifyDataSetChanged() // ← ESTO FALTABA
 
-        // Adapter
-        courseRVAdapter = RecyclerAdapterAsociacion(courseList, this)
-        courseRV.adapter = courseRVAdapter
-
-        //navHome()
+        },1500)
     }
 
     /*private fun navHome() {
