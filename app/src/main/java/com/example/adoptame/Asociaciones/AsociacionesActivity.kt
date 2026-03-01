@@ -12,17 +12,20 @@ import com.example.adoptame.Adapter.RecyclerAdapterAsociacion
 import com.example.adoptame.Desktop.DesktopActivity
 import com.example.adoptame.Modal.ModalAsociacion
 import com.example.adoptame.R
+import com.example.adoptame.utils.ShimmerClass
 
 class AsociacionesActivity : AppCompatActivity() {
 
     private lateinit var courseRV: RecyclerView
     private lateinit var courseRVAdapter: RecyclerAdapterAsociacion
     private lateinit var courseList: ArrayList<ModalAsociacion>
+    lateinit var shimmerUtils : ShimmerClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_asociaciones)
+        initShimmerUtils()
 
         // RecyclerView
         courseRV = findViewById(R.id.idRVCourses)
@@ -59,25 +62,14 @@ class AsociacionesActivity : AppCompatActivity() {
                 verified = false
             )
         )
-            courseRVAdapter.stopLoading()   // ← IMPORTANTE
+            shimmerUtils.stopLoadingAsociaciones(courseRVAdapter)
             courseRVAdapter.notifyDataSetChanged() // ← ESTO FALTABA
 
         },1500)
     }
-
-    /*private fun navHome() {
-
-        val fab: View = findViewById(R.id.floatBack1)
-        fab.setOnClickListener {
-            goHome()
-        }
-
-        val btnBack: View = findViewById(R.id.btnBack)
-        btnBack.setOnClickListener {
-            goHome()
-        }
-    }*/
-
+    private fun initShimmerUtils(){
+        shimmerUtils = ShimmerClass()
+    }
     private fun goHome() {
         val intent = Intent(this, DesktopActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)

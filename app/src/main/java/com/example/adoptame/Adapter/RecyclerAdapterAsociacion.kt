@@ -20,7 +20,7 @@ class RecyclerAdapterAsociacion(
     private val context: Context
 ) : RecyclerView.Adapter<RecyclerAdapterAsociacion.CourseViewHolder>() {
 
-    private var isLoading = true
+    internal var isLoading = true
 
     fun stopLoading() {
         isLoading = false

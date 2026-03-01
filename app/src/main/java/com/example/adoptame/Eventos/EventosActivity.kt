@@ -18,16 +18,19 @@ import com.example.adoptame.Desktop.DesktopActivity
 import com.example.adoptame.Modal.ModalAsociacion
 import com.example.adoptame.Modal.ModalEventos
 import com.example.adoptame.R
+import com.example.adoptame.utils.ShimmerClass
 
 class EventosActivity : AppCompatActivity() {
 
     lateinit var EventosRV: RecyclerView
     lateinit var eventosRVAdapter: RecyclerAdapterEventos
     lateinit var eventosList: ArrayList<ModalEventos>
+    lateinit var ShimmerUtils: ShimmerClass
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initShimmerUtils()
         enableEdgeToEdge()
 
         setContentView(R.layout.activity_eventos)
@@ -59,7 +62,7 @@ class EventosActivity : AppCompatActivity() {
                     courseImg = R.drawable.adopta_huellitas,
                 )
             )
-            eventosRVAdapter.stopLoading()   // 👈 AQUÍ SE QUITA EL SKELETON
+            ShimmerUtils.stopLoadingEventos(eventosRVAdapter)
             eventosRVAdapter.notifyDataSetChanged()
 
             val btnBack: View = findViewById(R.id.btnBack)
@@ -70,6 +73,10 @@ class EventosActivity : AppCompatActivity() {
             }
         },1500)
     }
+    private fun initShimmerUtils(){
+        ShimmerUtils = ShimmerClass()
+    }
+
 
 
 }

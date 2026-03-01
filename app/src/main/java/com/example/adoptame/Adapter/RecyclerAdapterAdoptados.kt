@@ -22,12 +22,7 @@ class RecyclerAdapterAdoptados(
     private val context: Context
 ) : RecyclerView.Adapter<RecyclerAdapterAdoptados.AdoptadosViewHolder>() {
 
-    private var isLoading = true
-
-    fun stopLoading() {
-        isLoading = false
-        notifyDataSetChanged()
-    }
+    internal var isLoading = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdoptadosViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -81,7 +76,6 @@ class RecyclerAdapterAdoptados(
 
         val shimmer: ShimmerFrameLayout = itemView.findViewById(R.id.shimmerLayout)
         val card: View = itemView.findViewById(R.id.cardReal)
-
         val raza: TextView = card.findViewById(R.id.raza)
         val edad: TextView = card.findViewById(R.id.edad)
         val name: TextView = card.findViewById(R.id.idName)

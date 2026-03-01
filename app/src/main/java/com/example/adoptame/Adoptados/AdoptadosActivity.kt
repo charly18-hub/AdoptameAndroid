@@ -1,19 +1,15 @@
 package com.example.adoptame.Adoptados
 
 import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.service.controls.actions.FloatAction
 import android.view.View
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,15 +18,17 @@ import com.example.adoptame.Desktop.DesktopActivity
 import com.example.adoptame.Modal.ModalAdoptados
 import com.example.adoptame.R
 import android.widget.VideoView
-import android.widget.MediaController
+import com.example.adoptame.utils.DialogsUtilsClass
+import com.example.adoptame.utils.ShimmerClass
+import com.example.adoptame.utils.getSpecieUtils
 
 class AdoptadosActivity : AppCompatActivity() {
-    // on below line we are creating variables
-    // for our swipe to refresh layout,
-    // recycler view, adapter and list.
+
     lateinit var adoptadosRV: RecyclerView
     lateinit var adoptadosRVAdapter: RecyclerAdapterAdoptados
     lateinit var adoptadosList: ArrayList<ModalAdoptados>
+    lateinit var shimmerUtils : ShimmerClass
+    lateinit var dialogComercial : DialogsUtilsClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,18 +37,26 @@ class AdoptadosActivity : AppCompatActivity() {
         getSpecie()
         timeDialog()
         navHome()
+        initShimmerUtils()
+        initDialogComercial()
+    }
 
+    private fun initShimmerUtils(){
+        shimmerUtils = ShimmerClass()
     }
-    private fun getSpecie(){
-        val sharedPreferences = applicationContext?.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        val especieType = sharedPreferences?.getString("especieType", "")
-        if(especieType.equals("1")){
-            initReciclerView()
-        }
-        if(especieType.equals("2")){
-            initReciclerViewCats()
+
+    private fun initDialogComercial(){
+        dialogComercial = DialogsUtilsClass()
+    }
+
+    private fun getSpecie() {
+        val especie = getSpecieUtils().getSpecie(this)
+        when (especie) {
+            "1" -> initReciclerView()
+            "2" -> initReciclerViewCats()
         }
     }
+
     private fun initReciclerView(){
         adoptadosRV = findViewById(R.id.idRVCourses)
         adoptadosList = ArrayList()
@@ -61,14 +67,12 @@ class AdoptadosActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-
         adoptadosList.add(ModalAdoptados("Guera", R.drawable.pet,"2 meses", "Mix Chihuahua","Enviar Solicitud"))
         adoptadosList.add(ModalAdoptados("Spike", R.drawable.pet, "4 Años", "Beagle","Enviar Solicitud"))
         adoptadosList.add(ModalAdoptados("Chocolata", R.drawable.pet,"6 Meses","Mix Pastor","Enviar Solicitud"))
         adoptadosList.add(ModalAdoptados("Chaparra", R.drawable.pet,"8 meses", "Mix Beagle","Enviar Solicitud"))
-        adoptadosRVAdapter.stopLoading()   // 👈 AQUÍ SE QUITA EL SKELETON
+        shimmerUtils.stopLoading(adoptadosRVAdapter)
         adoptadosRVAdapter.notifyDataSetChanged()
-
 
         },1500)
     }
@@ -91,27 +95,8 @@ class AdoptadosActivity : AppCompatActivity() {
         val tiempoTranscurrir = 1000 //1 segundo, 1000 millisegundos.
         val handler: Handler = Handler()
         handler.postDelayed(Runnable { //***Aquí agregamos el proceso a ejecutar.
-            showDefaultDialog()
+           dialogComercial.showDefaultComercial(this)
         }, tiempoTranscurrir.toLong()) //define el tiempo.
-    }
-    private fun showDefaultDialog() {
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.publicidad_view)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-        val videoView = dialog.findViewById<VideoView>(R.id.videoView)
-        val btnClose = dialog.findViewById<ImageView>(R.id.btnClose)
-
-        val videoPath = "android.resource://$packageName/${R.raw.croquetas}"
-        videoView.setVideoURI(Uri.parse(videoPath))
-        videoView.start()
-
-        btnClose.setOnClickListener {
-            videoView.stopPlayback()
-            dialog.dismiss()
-        }
-
-        dialog.show()
     }
 
     private fun navHome(){

@@ -24,12 +24,7 @@ private val eventosList: ArrayList<ModalEventos>,
 private val context: Context
 ) : RecyclerView.Adapter<RecyclerAdapterEventos.EventosViewHolder>() {
 
-    private var isLoading = true
-
-    fun stopLoading() {
-        isLoading = false
-        notifyDataSetChanged()
-    }
+    internal var isLoading = true
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
