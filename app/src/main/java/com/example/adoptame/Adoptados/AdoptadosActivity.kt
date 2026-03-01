@@ -92,11 +92,11 @@ class AdoptadosActivity : AppCompatActivity() {
 
     }
     private fun timeDialog(){
-        val tiempoTranscurrir = 1000 //1 segundo, 1000 millisegundos.
+        val tiempoTranscurrir = 1000
         val handler: Handler = Handler()
-        handler.postDelayed(Runnable { //***Aquí agregamos el proceso a ejecutar.
+        handler.postDelayed(Runnable {
            dialogComercial.showDefaultComercial(this)
-        }, tiempoTranscurrir.toLong()) //define el tiempo.
+        }, tiempoTranscurrir.toLong())
     }
 
     private fun navHome(){

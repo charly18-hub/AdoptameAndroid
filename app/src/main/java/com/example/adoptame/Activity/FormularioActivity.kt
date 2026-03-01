@@ -14,8 +14,11 @@ import com.example.adoptame.Desktop.DesktopActivity
 import com.example.adoptame.Desktop.DesktopCatsActivity
 import com.example.adoptame.FragmentsFormatoAdopcion.FormularioFragment
 import com.example.adoptame.R
+import com.example.adoptame.utils.DialogsUtilsClass
 
 class FormularioActivity : AppCompatActivity() {
+    lateinit var dialogFormato : DialogsUtilsClass
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,65 +30,34 @@ class FormularioActivity : AppCompatActivity() {
         }
         timeDialog()
         contFragment()
+        initDialog()
+    }
+
+    fun initDialog(){
+        dialogFormato = DialogsUtilsClass()
     }
 
     private fun timeDialog(){
-        //transicion a registro
-        val tiempoTranscurrir = 1000 //1 segundo, 1000 millisegundos.
+        val tiempoTranscurrir = 1000
         val handler: Handler = Handler()
-        handler.postDelayed(Runnable { //***Aquí agregamos el proceso a ejecutar.
-            //showDefaultDialog()
+        handler.postDelayed(Runnable {
             getSpecie()
-        }, tiempoTranscurrir.toLong()) //define el tiempo.
+        }, tiempoTranscurrir.toLong())
     }
-    private fun getSpecie(){
 
+    private fun getSpecie(){
         val sharedPreferences = applicationContext?.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val especieType = sharedPreferences?.getString("especieType", "")
-
         if(especieType.equals("1")){
-            showDefaultDialog()
+            dialogFormato.showDialogDog(this)
         }
         if(especieType.equals("2")){
-            showDefaultDialogCat()
+            dialogFormato.showDialogCat(this)
         }
-    }
-
-    private fun showDefaultDialog() {
-        val alertDialog = AlertDialog.Builder(this)
-        val inflater = this.layoutInflater;
-        alertDialog.apply {
-            setView(inflater.inflate(R.layout.dialog_alert1, null))
-            setPositiveButton("Aceptar") { _: DialogInterface?, _: Int ->
-            }
-            setNegativeButton("Salir") { _, _ ->
-                finish()
-            }
-            setOnDismissListener {
-            }
-        }.create().show()
-    }
-
-
-    private fun showDefaultDialogCat() {
-        val alertDialog = AlertDialog.Builder(this)
-        val inflater = this.layoutInflater;
-        alertDialog.apply {
-            setView(inflater.inflate(R.layout.dialog_alert1_cat, null))
-            setPositiveButton("Aceptar") { _: DialogInterface?, _: Int ->
-            }
-            setNegativeButton("Salir") { _, _ ->
-                finish()
-            }
-            setOnDismissListener {
-            }
-        }.create().show()
     }
 
     private fun contFragment(){
-        //Creamos el fragmento
         val formFragment = FormularioFragment()
-        //Pasamos los extras del intent al fragmento
         formFragment.arguments = intent.extras
         supportFragmentManager.beginTransaction()
             .add(R.id.contentFragmentFormat, formFragment).commit()

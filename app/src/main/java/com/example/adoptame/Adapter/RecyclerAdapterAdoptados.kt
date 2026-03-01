@@ -15,6 +15,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adoptame.Modal.ModalAdoptados
 import com.example.adoptame.R
+import com.example.adoptame.utils.DialogsUtilsClass
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class RecyclerAdapterAdoptados(
@@ -22,12 +23,18 @@ class RecyclerAdapterAdoptados(
     private val context: Context
 ) : RecyclerView.Adapter<RecyclerAdapterAdoptados.AdoptadosViewHolder>() {
 
+    lateinit var dialogAdopcionGracias : DialogsUtilsClass
     internal var isLoading = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdoptadosViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_adoptado, parent, false)
+        initDialogGracias()
         return AdoptadosViewHolder(itemView)
+    }
+
+    private fun initDialogGracias(){
+        dialogAdopcionGracias = DialogsUtilsClass()
     }
 
     override fun onBindViewHolder(holder: AdoptadosViewHolder, position: Int) {
@@ -49,19 +56,7 @@ class RecyclerAdapterAdoptados(
             holder.btn.text = item.adoptadoBtnSend
 
             holder.btn.setOnClickListener {
-                val dialog = Dialog(context)
-                dialog.setContentView(R.layout.solicitud_enviada_dog)
-                dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-                dialog.findViewById<TextView>(R.id.btnClose)?.setOnClickListener {
-                    dialog.dismiss()
-                }
-
-                dialog.findViewById<Button>(R.id.btnTrack)?.setOnClickListener {
-                    dialog.dismiss()
-                }
-
-                dialog.show()
+                dialogAdopcionGracias.showDialogGracias(context)
             }
         }
 
