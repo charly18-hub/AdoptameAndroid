@@ -1,14 +1,9 @@
 package com.example.adoptame.Adoptados
 
-import android.app.Dialog
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,8 +12,8 @@ import com.example.adoptame.Adapter.RecyclerAdapterAdoptados
 import com.example.adoptame.Desktop.DesktopActivity
 import com.example.adoptame.Modal.ModalAdoptados
 import com.example.adoptame.R
-import android.widget.VideoView
 import com.example.adoptame.utils.DialogsUtilsClass
+import com.example.adoptame.utils.GetDataClass
 import com.example.adoptame.utils.ShimmerClass
 import com.example.adoptame.utils.getSpecieUtils
 
@@ -29,6 +24,7 @@ class AdoptadosActivity : AppCompatActivity() {
     lateinit var adoptadosList: ArrayList<ModalAdoptados>
     lateinit var shimmerUtils : ShimmerClass
     lateinit var dialogComercial : DialogsUtilsClass
+    lateinit var recyclerData : GetDataClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,15 +35,14 @@ class AdoptadosActivity : AppCompatActivity() {
         navHome()
         initShimmerUtils()
         initDialogComercial()
+        initRecyclerData()
     }
 
-    private fun initShimmerUtils(){
-        shimmerUtils = ShimmerClass()
-    }
+    private fun initShimmerUtils(){ shimmerUtils = ShimmerClass() }
 
-    private fun initDialogComercial(){
-        dialogComercial = DialogsUtilsClass()
-    }
+    private fun initDialogComercial(){ dialogComercial = DialogsUtilsClass() }
+
+    private fun initRecyclerData(){ recyclerData = GetDataClass() }
 
     private fun getSpecie() {
         val especie = getSpecieUtils().getSpecie(this)
@@ -66,13 +61,9 @@ class AdoptadosActivity : AppCompatActivity() {
         adoptadosRV.adapter = adoptadosRVAdapter
 
         Handler().postDelayed({
-
-        adoptadosList.add(ModalAdoptados("Guera", R.drawable.pet,"2 meses", "Mix Chihuahua","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Spike", R.drawable.pet, "4 Años", "Beagle","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Chocolata", R.drawable.pet,"6 Meses","Mix Pastor","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Chaparra", R.drawable.pet,"8 meses", "Mix Beagle","Enviar Solicitud"))
-        shimmerUtils.stopLoading(adoptadosRVAdapter)
-        adoptadosRVAdapter.notifyDataSetChanged()
+            val data = recyclerData.getDogList()
+            adoptadosList.addAll(data)
+            shimmerUtils.stopLoading(adoptadosRVAdapter)
 
         },1500)
     }
@@ -84,13 +75,14 @@ class AdoptadosActivity : AppCompatActivity() {
         adoptadosRV.layoutManager = layoutManager
         adoptadosRVAdapter = RecyclerAdapterAdoptados(adoptadosList, this)
         adoptadosRV.adapter = adoptadosRVAdapter
-        adoptadosList.add(ModalAdoptados("Guera", R.drawable.cat1,"2 meses", "Mix Chihuahua","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Spike", R.drawable.cat1, "4 Años", "Beagle","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Chocolata", R.drawable.cat1,"6 Meses","Mix Pastor","Enviar Solicitud"))
-        adoptadosList.add(ModalAdoptados("Chaparra", R.drawable.cat1,"8 meses", "Mix Beagle","Enviar Solicitud"))
-        adoptadosRVAdapter.notifyDataSetChanged()
+        Handler().postDelayed({
+            val data = recyclerData.getCatList()
+            adoptadosList.addAll(data)
+            shimmerUtils.stopLoading(adoptadosRVAdapter)
 
+        },1500)
     }
+
     private fun timeDialog(){
         val tiempoTranscurrir = 1000
         val handler: Handler = Handler()
