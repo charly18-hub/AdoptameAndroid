@@ -47,12 +47,12 @@ class AdoptadosActivity : AppCompatActivity() {
     private fun getSpecie() {
         val especie = getSpecieUtils().getSpecie(this)
         when (especie) {
-            "1" -> initReciclerView()
-            "2" -> initReciclerViewCats()
+            "1" -> getDataReciclerViewDogs()
+            "2" -> getDataReciclerViewCats()
         }
     }
 
-    private fun initReciclerView(){
+    private fun getDataReciclerViewDogs(){
         adoptadosRV = findViewById(R.id.idRVCourses)
         adoptadosList = ArrayList()
         val layoutManager = GridLayoutManager(this, 2)
@@ -68,7 +68,7 @@ class AdoptadosActivity : AppCompatActivity() {
         },1500)
     }
 
-    private fun initReciclerViewCats(){
+    private fun getDataReciclerViewCats(){
         adoptadosRV = findViewById(R.id.idRVCourses)
         adoptadosList = ArrayList()
         val layoutManager = GridLayoutManager(this, 2)

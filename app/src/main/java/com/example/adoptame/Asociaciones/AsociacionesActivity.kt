@@ -12,64 +12,51 @@ import com.example.adoptame.Adapter.RecyclerAdapterAsociacion
 import com.example.adoptame.Desktop.DesktopActivity
 import com.example.adoptame.Modal.ModalAsociacion
 import com.example.adoptame.R
+import com.example.adoptame.utils.GetDataClass
 import com.example.adoptame.utils.ShimmerClass
 
 class AsociacionesActivity : AppCompatActivity() {
 
-    private lateinit var courseRV: RecyclerView
-    private lateinit var courseRVAdapter: RecyclerAdapterAsociacion
-    private lateinit var courseList: ArrayList<ModalAsociacion>
+    private lateinit var asociacionRV: RecyclerView
+    private lateinit var asociacionRVAdapter: RecyclerAdapterAsociacion
+    private lateinit var asociacionList: ArrayList<ModalAsociacion>
     lateinit var shimmerUtils : ShimmerClass
+    lateinit var recyclerDataAsociacion : GetDataClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_asociaciones)
         initShimmerUtils()
-
-        // RecyclerView
-        courseRV = findViewById(R.id.idRVCourses)
-        courseRV.layoutManager = LinearLayoutManager(this)
-        courseRV.setHasFixedSize(true)
-        // Data
-        courseList = ArrayList()
-
-        // Adapter
-        courseRVAdapter = RecyclerAdapterAsociacion(courseList, this)
-        courseRV.adapter = courseRVAdapter
-
-        Handler().postDelayed({
-
-
-        courseList.add(
-            ModalAsociacion(
-                name = "Adopta Huellitas",
-                city = "Monterrey",
-                dogs = 34,
-                cats = 12,
-                logo = R.drawable.adopta_huellitas,
-                verified = true
-            )
-        )
-
-        courseList.add(
-            ModalAsociacion(
-                name = "Patitas de Amor",
-                city = "CDMX",
-                dogs = 10,
-                cats = 8,
-                logo = R.drawable.patitas_amor,
-                verified = false
-            )
-        )
-            shimmerUtils.stopLoadingAsociaciones(courseRVAdapter)
-            courseRVAdapter.notifyDataSetChanged() // ← ESTO FALTABA
-
-        },1500)
+        initDataRecycler()
+        getDataReciclerAsociaciones()
     }
     private fun initShimmerUtils(){
         shimmerUtils = ShimmerClass()
     }
+
+    private fun initDataRecycler(){
+        recyclerDataAsociacion = GetDataClass()
+    }
+
+    private fun getDataReciclerAsociaciones(){
+        asociacionRV = findViewById(R.id.idRVCourses)
+        asociacionRV.layoutManager = LinearLayoutManager(this)
+        asociacionRV.setHasFixedSize(true)
+        asociacionList = ArrayList()
+        asociacionRVAdapter = RecyclerAdapterAsociacion(asociacionList, this)
+        asociacionRV.adapter = asociacionRVAdapter
+
+        Handler().postDelayed({
+            val data = recyclerDataAsociacion.getAsociacionesData()
+            asociacionList.addAll(data)
+            shimmerUtils.stopLoadingAsociaciones(asociacionRVAdapter)
+            asociacionRVAdapter.notifyDataSetChanged()
+
+        },1500)
+
+    }
+
     private fun goHome() {
         val intent = Intent(this, DesktopActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)

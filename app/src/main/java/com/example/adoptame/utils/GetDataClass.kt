@@ -1,5 +1,6 @@
 package com.example.adoptame.utils
 import com.example.adoptame.Modal.ModalAdoptados
+import com.example.adoptame.Modal.ModalAsociacion
 import com.example.adoptame.R
 
 class GetDataClass {
@@ -19,6 +20,27 @@ class GetDataClass {
             ModalAdoptados("Spike", R.drawable.cat1, "4 Años", "Beagle","Enviar Solicitud"),
             ModalAdoptados("Chocolata", R.drawable.cat1,"6 Meses","Mix Pastor","Enviar Solicitud"),
             ModalAdoptados("Chaparra", R.drawable.cat1,"8 meses", "Mix Beagle","Enviar Solicitud")
+        )
+    }
+
+    fun getAsociacionesData(): List<ModalAsociacion>{
+        return listOf(
+            ModalAsociacion(
+                name = "Adopta Huellitas",
+                city = "Monterrey",
+                dogs = 34,
+                cats = 12,
+                logo = R.drawable.adopta_huellitas,
+                verified = true
+            ),
+            ModalAsociacion(
+                name = "Patitas de Amor",
+                city = "CDMX",
+                dogs = 10,
+                cats = 8,
+                logo = R.drawable.patitas_amor,
+                verified = false
+            )
         )
     }
 }
