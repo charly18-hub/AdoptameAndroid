@@ -7,15 +7,10 @@ import android.os.Handler
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.adoptame.Adapter.RecyclerAdapterAsociacion
 import com.example.adoptame.Adapter.RecyclerAdapterEventos
 import com.example.adoptame.Desktop.DesktopActivity
-import com.example.adoptame.Modal.ModalAsociacion
 import com.example.adoptame.Modal.ModalEventos
 import com.example.adoptame.R
 import com.example.adoptame.utils.GetDataClass
@@ -39,6 +34,9 @@ class EventosActivity : AppCompatActivity() {
         initRecyclerData()
         getDataReciclerViewEvents()
     }
+    private fun initShimmerUtils(){ ShimmerUtils = ShimmerClass() }
+
+    private fun initRecyclerData(){ recyclerData = GetDataClass() }
 
     private fun getDataReciclerViewEvents(){
         EventosRV = findViewById(R.id.idRVEventos)
@@ -61,11 +59,4 @@ class EventosActivity : AppCompatActivity() {
             }
         },1500)
     }
-
-    private fun initShimmerUtils(){ ShimmerUtils = ShimmerClass() }
-
-    private fun initRecyclerData(){ recyclerData = GetDataClass() }
-
-
-
 }
