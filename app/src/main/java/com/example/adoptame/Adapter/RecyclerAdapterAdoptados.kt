@@ -13,13 +13,15 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.adoptame.Modal.ModalAdoptados
+import com.example.adoptame.Modal.Pet
 import com.example.adoptame.R
 import com.example.adoptame.utils.DialogsUtilsClass
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class RecyclerAdapterAdoptados(
-    private val adoptadosList: ArrayList<ModalAdoptados>,
+    private val adoptadosList: ArrayList<Pet>,
     private val context: Context
 ) : RecyclerView.Adapter<RecyclerAdapterAdoptados.AdoptadosViewHolder>() {
 
@@ -49,11 +51,13 @@ class RecyclerAdapterAdoptados(
             holder.card.visibility = View.VISIBLE
 
             val item = adoptadosList[position]
-            holder.edad.text = item.adoptadoEdad
-            holder.raza.text = item.adoptadoRaza
-            holder.name.text = item.adoptadoName
-            holder.img.setImageResource(item.adoptadoImg)
-            holder.btn.text = item.adoptadoBtnSend
+            holder.name.text = item.name
+            holder.edad.text = item.age
+            holder.raza.text = item.breed
+
+            Glide.with(context)
+                .load(R.drawable.pet)
+                .into(holder.img)
 
             holder.btn.setOnClickListener {
                 dialogAdopcionGracias.showDialogGracias(context)

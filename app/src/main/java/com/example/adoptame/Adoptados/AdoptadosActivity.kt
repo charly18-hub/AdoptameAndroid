@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.adoptame.Adapter.RecyclerAdapterAdoptados
 import com.example.adoptame.Desktop.DesktopActivity
 import com.example.adoptame.Modal.ModalAdoptados
+import com.example.adoptame.Modal.Pet
 import com.example.adoptame.R
+import com.example.adoptame.Repository.PetRepository
 import com.example.adoptame.utils.DialogsUtilsClass
 import com.example.adoptame.utils.GetDataClass
 import com.example.adoptame.utils.ShimmerClass
@@ -21,10 +23,11 @@ class AdoptadosActivity : AppCompatActivity() {
 
     lateinit var adoptadosRV: RecyclerView
     lateinit var adoptadosRVAdapter: RecyclerAdapterAdoptados
-    lateinit var adoptadosList: ArrayList<ModalAdoptados>
+    lateinit var adoptadosList: ArrayList<Pet>
     lateinit var shimmerUtils : ShimmerClass
     lateinit var dialogComercial : DialogsUtilsClass
     lateinit var recyclerData : GetDataClass
+    private val repository = PetRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,21 +58,23 @@ class AdoptadosActivity : AppCompatActivity() {
     private fun getDataReciclerViewDogs(){
         adoptadosRV = findViewById(R.id.idRVCourses)
         adoptadosList = ArrayList()
-        val layoutManager = GridLayoutManager(this, 2)
-        adoptadosRV.layoutManager = layoutManager
+
+        adoptadosRV.layoutManager = GridLayoutManager(this, 2)
+
         adoptadosRVAdapter = RecyclerAdapterAdoptados(adoptadosList, this)
         adoptadosRV.adapter = adoptadosRVAdapter
 
-        Handler().postDelayed({
-            val data = recyclerData.getDogList()
-            adoptadosList.addAll(data)
-            shimmerUtils.stopLoading(adoptadosRVAdapter)
+        repository.getPets("dog") { pets ->
 
-        },1500)
+            adoptadosList.clear()
+            adoptadosList.addAll(pets)
+
+            shimmerUtils.stopLoading(adoptadosRVAdapter)
+        }
     }
 
     private fun getDataReciclerViewCats(){
-        adoptadosRV = findViewById(R.id.idRVCourses)
+       /* adoptadosRV = findViewById(R.id.idRVCourses)
         adoptadosList = ArrayList()
         val layoutManager = GridLayoutManager(this, 2)
         adoptadosRV.layoutManager = layoutManager
@@ -80,7 +85,7 @@ class AdoptadosActivity : AppCompatActivity() {
             adoptadosList.addAll(data)
             shimmerUtils.stopLoading(adoptadosRVAdapter)
 
-        },1500)
+        },1500)*/
     }
 
     private fun timeDialog(){

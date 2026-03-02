@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:663671986040:android:7c68a8007364f805035a8d",
+        "mobilesdk_app_id": "1:663671986040:android:fa30ddf39fb18421035a8d",
         "android_client_info": {
-          "package_name": "com.example.adoptame.Adoptados"
+          "package_name": "com.example.adoptame"
         }
       },
       "oauth_client": [],
