@@ -18,6 +18,7 @@ import com.example.adoptame.Desktop.DesktopActivity
 import com.example.adoptame.Modal.ModalAsociacion
 import com.example.adoptame.Modal.ModalEventos
 import com.example.adoptame.R
+import com.example.adoptame.utils.GetDataClass
 import com.example.adoptame.utils.ShimmerClass
 
 class EventosActivity : AppCompatActivity() {
@@ -26,14 +27,20 @@ class EventosActivity : AppCompatActivity() {
     lateinit var eventosRVAdapter: RecyclerAdapterEventos
     lateinit var eventosList: ArrayList<ModalEventos>
     lateinit var ShimmerUtils: ShimmerClass
+    lateinit var recyclerData : GetDataClass
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initShimmerUtils()
         enableEdgeToEdge()
-
         setContentView(R.layout.activity_eventos)
+        initShimmerUtils()
+        initRecyclerData()
+        getDataReciclerViewEvents()
+    }
+
+    private fun getDataReciclerViewEvents(){
         EventosRV = findViewById(R.id.idRVEventos)
         eventosList = ArrayList()
         EventosRV.layoutManager = LinearLayoutManager(this)
@@ -41,27 +48,8 @@ class EventosActivity : AppCompatActivity() {
         EventosRV.adapter = eventosRVAdapter
 
         Handler().postDelayed({
-
-
-            eventosList.add(
-                ModalEventos(
-                    nameEvento = "Adopta Huellitas",
-                    location = "Parque Fundidora",
-                    date = "Sáb 19 Feb · 11:00 am",
-                    pets = "12",
-                    courseImg = R.drawable.adopta_huellitas,
-                )
-            )
-
-            eventosList.add(
-                ModalEventos(
-                    nameEvento = "Adopta Huellitas",
-                    location = "Parque Mexico",
-                    date = "Sáb 6 Feb · 11:00 am",
-                    pets = "12",
-                    courseImg = R.drawable.adopta_huellitas,
-                )
-            )
+            val data = recyclerData.getEventosData()
+            eventosList.addAll(data)
             ShimmerUtils.stopLoadingEventos(eventosRVAdapter)
             eventosRVAdapter.notifyDataSetChanged()
 
@@ -73,9 +61,10 @@ class EventosActivity : AppCompatActivity() {
             }
         },1500)
     }
-    private fun initShimmerUtils(){
-        ShimmerUtils = ShimmerClass()
-    }
+
+    private fun initShimmerUtils(){ ShimmerUtils = ShimmerClass() }
+
+    private fun initRecyclerData(){ recyclerData = GetDataClass() }
 
 
 

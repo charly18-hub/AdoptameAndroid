@@ -1,6 +1,7 @@
 package com.example.adoptame.utils
 import com.example.adoptame.Modal.ModalAdoptados
 import com.example.adoptame.Modal.ModalAsociacion
+import com.example.adoptame.Modal.ModalEventos
 import com.example.adoptame.R
 
 class GetDataClass {
@@ -43,4 +44,24 @@ class GetDataClass {
             )
         )
     }
+
+    fun getEventosData(): List<ModalEventos>{
+        return listOf(
+            ModalEventos(
+                nameEvento = "Adopta Huellitas",
+                location = "Parque Fundidora",
+                date = "Sáb 19 Feb · 11:00 am",
+                pets = "12",
+                courseImg = R.drawable.adopta_huellitas,
+            ),
+            ModalEventos(
+                nameEvento = "Adopta Huellitas",
+                location = "Parque Mexico",
+                date = "Sáb 6 Feb · 11:00 am",
+                pets = "12",
+                courseImg = R.drawable.adopta_huellitas,
+            )
+        )
+    }
+
 }
