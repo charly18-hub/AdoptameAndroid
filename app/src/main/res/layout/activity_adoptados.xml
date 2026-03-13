@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/bg_main"
-    tools:context=".Adoptados.AdoptadosActivity">
+    tools:context=".presentation.adoptados.view.AdoptadosActivity">
 
     <!--on below line we are creating
          a text for heading of our app-->

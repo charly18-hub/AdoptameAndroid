@@ -1,0 +1,50 @@
+package com.example.adoptame.presentation.Login
+
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import com.example.adoptame.presentation.SelectSpecie.SelectEspecieActivity
+import com.example.adoptame.R
+import com.example.adoptame.presentation.Registro.RegisterActivity
+
+class LoginActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_login)
+
+        val btnLogin: Button = findViewById(R.id.btnLogin)
+            btnLogin.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                navSelectEspecie()
+            }
+        })
+
+        val btnRegister : TextView = findViewById(R.id.txtRegister)
+        btnRegister.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(view: View?) {
+                navRegisterActivity()
+            }
+        })
+    }
+
+    fun navRegisterActivity(){
+        val intentRegister= Intent(applicationContext, RegisterActivity::class.java)
+        startActivity(intentRegister)
+    }
+
+
+
+    fun navSelectEspecie(){
+        val intentSelectEspecie= Intent(applicationContext, SelectEspecieActivity::class.java)
+        startActivity(intentSelectEspecie)
+        finish()
+    }
+
+}

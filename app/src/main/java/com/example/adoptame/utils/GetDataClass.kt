@@ -1,7 +1,7 @@
 package com.example.adoptame.utils
-import com.example.adoptame.Modal.ModalAdoptados
-import com.example.adoptame.Modal.ModalAsociacion
-import com.example.adoptame.Modal.ModalEventos
+import com.example.adoptame.modal.ModalAdoptados
+import com.example.adoptame.modal.ModalAsociacion
+import com.example.adoptame.modal.ModalEventos
 import com.example.adoptame.R
 
 class GetDataClass {

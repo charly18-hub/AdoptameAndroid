@@ -1,0 +1,86 @@
+package com.example.adoptame.adapter
+
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.adoptame.domain.entity.Association
+import com.example.adoptame.R
+import com.facebook.shimmer.ShimmerFrameLayout
+
+class RecyclerAdapterAsociacion(
+    private val courseList: ArrayList<Association>,
+    private val context: Context
+) : RecyclerView.Adapter<RecyclerAdapterAsociacion.CourseViewHolder>() {
+
+    internal var isLoading = true
+
+    fun updateList(list: List<Association>) {
+        courseList.clear()
+        courseList.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    fun stopLoading() {
+        isLoading = false
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RecyclerAdapterAsociacion.CourseViewHolder {
+        // this method is use to inflate the layout file
+        // which we have created for our recycler view.
+        // on below line we are inflating our layout file.
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.item_asociacion,
+            parent, false
+        )
+        // at last we are returning our view holder
+        // class with our item View File.
+        return CourseViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: RecyclerAdapterAsociacion.CourseViewHolder, position: Int) {
+        // on below line we are setting data to our text view and our image view.
+        if (isLoading) {
+            holder.shimmer.visibility = View.VISIBLE
+            holder.linearLayoutAsociacion.visibility = View.GONE
+            holder.shimmer.startShimmer()
+        } else {
+            holder.shimmer.stopShimmer()
+            holder.shimmer.visibility = View.GONE
+            holder.linearLayoutAsociacion.visibility = View.VISIBLE
+
+
+            val item = courseList[position]
+
+            holder.courseNameTV.text = item.name
+
+            Glide.with(context)
+                .load(R.drawable.adopta_anegl)
+                .into(holder.courseIV)
+
+        }
+    }
+
+    override fun getItemCount(): Int {
+        // on below line we are
+        // returning our size of our list
+        return if (isLoading) 4 else courseList.size
+    }
+
+    class CourseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        // on below line we are initializing our course name text view and our image view.
+        val shimmer: ShimmerFrameLayout = itemView.findViewById(R.id.shimmerLayoutAsociacion)
+        val linearLayoutAsociacion: View = itemView.findViewById(R.id.linearLayoutAsociacionReal)
+
+        val courseNameTV: TextView = itemView.findViewById(R.id.txtName)
+        val courseIV: ImageView = itemView.findViewById(R.id.imgLogoReal)
+    }
+}

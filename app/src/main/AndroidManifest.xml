@@ -16,37 +16,37 @@
             android:name=".Adoptados.CatsAdoptadosActivity"
             android:exported="false" />
         <activity
-            android:name=".Desktop.DesktopCatsActivity"
+            android:name=".presentation.Desktop.DesktopCatsActivity"
             android:exported="false" />
         <activity
-            android:name=".Registro.RegisterActivity"
+            android:name=".presentation.Registro.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".Login.LoginActivity"
+            android:name=".presentation.Login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Eventos.EventosActivity"
+            android:name=".presentation.Eventos.EventosActivity"
             android:exported="false" />
         <activity
-            android:name=".Adoptados.AdoptadosActivity"
+            android:name=".presentation.adoptados.view.AdoptadosActivity"
             android:exported="false" />
         <activity
-            android:name=".Asociaciones.AsociacionesActivity"
+            android:name=".presentation.asociaciones.view.AsociacionesActivity"
             android:exported="false" />
         <activity
-            android:name=".Cargando.CargandoActivity"
+            android:name=".presentation.Cargando.CargandoActivity"
             android:exported="false" />
         <activity
-            android:name=".Desktop.DesktopActivity"
+            android:name=".presentation.Desktop.DesktopActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.SelectEspecieActivity"
+            android:name=".presentation.SelectSpecie.SelectEspecieActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.FormularioActivity"
+            android:name=".presentation.Formulario.FormularioActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".presentation.Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

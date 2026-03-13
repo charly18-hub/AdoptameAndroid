@@ -1,10 +1,9 @@
 package com.example.adoptame.utils
 
-import android.widget.Adapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.adoptame.Adapter.RecyclerAdapterAdoptados
-import com.example.adoptame.Adapter.RecyclerAdapterAsociacion
-import com.example.adoptame.Adapter.RecyclerAdapterEventos
+import com.example.adoptame.adapter.RecyclerAdapterAdoptados
+import com.example.adoptame.adapter.RecyclerAdapterAsociacion
+import com.example.adoptame.adapter.RecyclerAdapterEventos
 
 class ShimmerClass {
 
