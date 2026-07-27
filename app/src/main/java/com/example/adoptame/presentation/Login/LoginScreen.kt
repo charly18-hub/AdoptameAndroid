@@ -141,20 +141,6 @@ fun LoginScreen(
                     )
 
 
-                    PrimaryButton(
-
-                        text = "ENTRAR",
-
-                        onClick = onLoginClick
-
-                    )
-
-
-                    Spacer(
-                        modifier = Modifier.padding(8.dp)
-                    )
-
-
                     RegisterText(
                         onClick = onRegisterClick
                     )
