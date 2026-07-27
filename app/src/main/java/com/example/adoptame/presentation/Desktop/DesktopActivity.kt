@@ -9,9 +9,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.adoptame.presentation.adoptados.view.AdoptadosActivity
-import com.example.adoptame.presentation.asociaciones.view.AsociacionesActivity
-import com.example.adoptame.presentation.Eventos.EventosActivity
+import com.example.adoptame.presentation.Adoptados.view.AdoptadosActivity
+import com.example.adoptame.presentation.Asociaciones.view.AsociacionesActivity
+import com.example.adoptame.presentation.Eventos.view.EventosActivity
 import com.example.adoptame.R
 
 class DesktopActivity : AppCompatActivity() {

@@ -8,18 +8,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.adoptame.domain.entity.Pet
 import com.example.adoptame.R
+import com.example.adoptame.domain.entity.Pet
 import com.example.adoptame.utils.DialogsUtilsClass
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class RecyclerAdapterAdoptados(
-    private val adoptadosList: ArrayList<Pet>,
+    private val adoptadosList: MutableList<Pet>,
     private val context: Context
 ) : RecyclerView.Adapter<RecyclerAdapterAdoptados.AdoptadosViewHolder>() {
 
-    lateinit var dialogAdopcionGracias : DialogsUtilsClass
-    internal var isLoading = true
+    private lateinit var dialogAdopcionGracias: DialogsUtilsClass
+
+    var isLoading = true
 
     fun updateList(list: List<Pet>) {
         adoptadosList.clear()
@@ -27,29 +28,42 @@ class RecyclerAdapterAdoptados(
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdoptadosViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): AdoptadosViewHolder {
+
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_adoptado, parent, false)
+
         initDialogGracias()
+
         return AdoptadosViewHolder(itemView)
     }
 
-    private fun initDialogGracias(){
+    private fun initDialogGracias() {
         dialogAdopcionGracias = DialogsUtilsClass()
     }
 
-    override fun onBindViewHolder(holder: AdoptadosViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: AdoptadosViewHolder,
+        position: Int
+    ) {
 
         if (isLoading) {
+
             holder.shimmer.visibility = View.VISIBLE
             holder.card.visibility = View.GONE
             holder.shimmer.startShimmer()
+
         } else {
+
             holder.shimmer.stopShimmer()
             holder.shimmer.visibility = View.GONE
             holder.card.visibility = View.VISIBLE
 
             val item = adoptadosList[position]
+
             holder.name.text = item.name
             holder.edad.text = item.age
             holder.raza.text = item.breed
@@ -62,9 +76,7 @@ class RecyclerAdapterAdoptados(
                 dialogAdopcionGracias.showDialogGracias(context)
             }
         }
-
     }
-
 
     override fun getItemCount(): Int {
         return if (isLoading) 6 else adoptadosList.size
@@ -72,13 +84,25 @@ class RecyclerAdapterAdoptados(
 
     class AdoptadosViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val shimmer: ShimmerFrameLayout = itemView.findViewById(R.id.shimmerLayout)
-        val card: View = itemView.findViewById(R.id.cardReal)
-        val raza: TextView = card.findViewById(R.id.raza)
-        val edad: TextView = card.findViewById(R.id.edad)
-        val name: TextView = card.findViewById(R.id.idName)
-        val img: ImageView = card.findViewById(R.id.idImg)
-        val btn: TextView = card.findViewById(R.id.btnEnviarSolicitud)
+        val shimmer: ShimmerFrameLayout =
+            itemView.findViewById(R.id.shimmerLayout)
 
+        val card: View =
+            itemView.findViewById(R.id.cardReal)
+
+        val raza: TextView =
+            card.findViewById(R.id.raza)
+
+        val edad: TextView =
+            card.findViewById(R.id.edad)
+
+        val name: TextView =
+            card.findViewById(R.id.idName)
+
+        val img: ImageView =
+            card.findViewById(R.id.idImg)
+
+        val btn: TextView =
+            card.findViewById(R.id.btnEnviarSolicitud)
     }
 }

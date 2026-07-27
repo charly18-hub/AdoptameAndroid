@@ -1,4 +1,4 @@
-package com.example.adoptame.presentation.asociaciones.view
+package com.example.adoptame.presentation.Asociaciones.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,8 +15,8 @@ import com.example.adoptame.presentation.Desktop.DesktopActivity
 import com.example.adoptame.R
 import com.example.adoptame.data.repository.AssociationRepositoryImpl
 import com.example.adoptame.domain.usecase.GetAssociationsUseCase
-import com.example.adoptame.presentation.asociaciones.viewmodel.AsociacionesViewModel
-import com.example.adoptame.presentation.asociaciones.viewmodel.AsociacionesViewModelFactory
+import com.example.adoptame.presentation.Asociaciones.viewmodel.AsociacionesViewModel
+import com.example.adoptame.presentation.Asociaciones.viewmodel.AsociacionesViewModelFactory
 import com.example.adoptame.utils.ShimmerClass
 import kotlinx.coroutines.launch
 

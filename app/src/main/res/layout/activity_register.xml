@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/azul_bg">
 
     <!-- Fondo -->
     <ImageView
@@ -15,7 +16,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#802F7D8C"/>
+        android:background="#802F7D8C" />
 
     <!-- Card -->
     <androidx.cardview.widget.CardView
@@ -33,92 +34,92 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="24dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="24dp">
 
                 <!-- Imagen -->
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/log"/>
+                    android:src="@drawable/registro" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Crear Cuenta"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="#2F7D8C"
-                    android:textAlignment="center"/>
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:text="Comienza tu camino hacia una adopción"
                     android:textAlignment="center"
-                    android:textColor="#888888"
-                    android:layout_marginBottom="16dp"/>
+                    android:textColor="#888888" />
 
                 <!-- Inputs -->
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
                     android:layout_marginBottom="10dp"
-                    android:hint="Nombre completo"
-                    android:background="@drawable/bg_border_green"/>
+                    android:background="@drawable/bg_border_green"
+                    android:hint="Nombre completo" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:hint="Correo electrónico"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_border_green"/>
+                    android:background="@drawable/bg_border_green"
+                    android:hint="Correo electrónico" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:hint="Dirección"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_border_green"/>
+                    android:background="@drawable/bg_border_green"
+                    android:hint="Dirección" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:hint="Alcaldía"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_border_green"/>
+                    android:background="@drawable/bg_border_green"
+                    android:hint="Alcaldía" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:hint="Teléfono"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_border_green"/>
+                    android:background="@drawable/bg_border_green"
+                    android:hint="Teléfono" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:hint="Edad"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_border_green"/>
+                    android:background="@drawable/bg_border_green"
+                    android:hint="Edad" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_border_green"
                     android:hint="Contraseña"
-                    android:inputType="textPassword"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_border_green"/>
+                    android:inputType="textPassword" />
 
                 <Button
                     android:id="@+id/txtRegistrar"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
-                    android:text="REGISTRARME"
-                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"
                     android:background="@drawable/btn_gradient"
-                    android:layout_marginTop="16dp"/>
+                    android:text="REGISTRARME"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 

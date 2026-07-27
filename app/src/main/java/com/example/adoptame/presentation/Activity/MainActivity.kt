@@ -7,8 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
-import com.example.adoptame.presentation.Login.LoginActivity
 import com.example.adoptame.R
+import com.example.adoptame.presentation.login.LoginActivity
 
 
 class MainActivity : AppCompatActivity() {

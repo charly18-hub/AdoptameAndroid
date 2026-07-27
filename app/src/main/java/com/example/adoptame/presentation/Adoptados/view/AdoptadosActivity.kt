@@ -1,4 +1,4 @@
-package com.example.adoptame.presentation.adoptados.view
+package com.example.adoptame.presentation.Adoptados.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,13 +12,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.adoptame.adapter.RecyclerAdapterAdoptados
 import com.example.adoptame.presentation.Desktop.DesktopActivity
 import com.example.adoptame.R
+import com.example.adoptame.adapter.RecyclerAdapterAdoptados
 import com.example.adoptame.data.repository.PetRepositoryImpl
 import com.example.adoptame.domain.usecase.GetPetsUseCase
-import com.example.adoptame.presentation.adoptados.viewmodel.AdoptadosViewModel
-import com.example.adoptame.presentation.adoptados.viewmodel.AdoptadosViewModelFactory
+import com.example.adoptame.presentation.Adoptados.viewmodel.AdoptadosViewModel
+import com.example.adoptame.presentation.Adoptados.viewmodel.AdoptadosViewModelFactory
 import com.example.adoptame.utils.DialogsUtilsClass
 import com.example.adoptame.utils.ShimmerClass
 import com.example.adoptame.utils.GetSpecieUtils

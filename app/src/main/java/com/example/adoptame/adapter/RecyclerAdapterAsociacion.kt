@@ -25,11 +25,6 @@ class RecyclerAdapterAsociacion(
         notifyDataSetChanged()
     }
 
-    fun stopLoading() {
-        isLoading = false
-        notifyDataSetChanged()
-    }
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -57,9 +52,7 @@ class RecyclerAdapterAsociacion(
             holder.shimmer.visibility = View.GONE
             holder.linearLayoutAsociacion.visibility = View.VISIBLE
 
-
             val item = courseList[position]
-
             holder.courseNameTV.text = item.name
 
             Glide.with(context)

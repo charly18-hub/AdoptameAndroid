@@ -1,4 +1,4 @@
-package com.example.adoptame.presentation.adoptados.viewmodel
+package com.example.adoptame.presentation.Adoptados.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

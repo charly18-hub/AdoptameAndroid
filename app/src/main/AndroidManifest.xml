@@ -22,16 +22,17 @@
             android:name=".presentation.Registro.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.Login.LoginActivity"
+            android:name=".presentation.login.LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".presentation.Eventos.view.EventosActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.Eventos.EventosActivity"
+            android:name=".presentation.Adoptados.view.AdoptadosActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.adoptados.view.AdoptadosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.asociaciones.view.AsociacionesActivity"
+            android:name=".presentation.Asociaciones.view.AsociacionesActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.Cargando.CargandoActivity"

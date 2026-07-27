@@ -38,17 +38,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
-                android:src="@drawable/log" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bienvenido"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="#2F7D8C"
-                android:layout_marginTop="8dp"/>
+                android:src="@drawable/registro" />
 
             <TextView
                 android:layout_width="match_parent"

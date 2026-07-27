@@ -8,7 +8,7 @@
     <color name="azul">#339abb</color>
     <color name="azulRegister">#b9dee7</color>
     <color name="azulLogin">#718fa9</color>
-
+    <color name="gris_tenue">#D3D3D3</color>
         <!-- Brand -->
         <color name="primary">#1F8EAA</color>
         <color name="secondary">#3CBFA6</color>
