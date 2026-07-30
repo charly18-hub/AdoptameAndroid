@@ -6,6 +6,7 @@ import com.example.adoptame.domain.entity.Association
 import com.example.adoptame.domain.entity.Events
 import com.example.adoptame.domain.usecase.GetAssociationsUseCase
 import com.example.adoptame.domain.usecase.GetEventsUseCase
+import com.example.adoptame.modal.ModalEventos
 import com.example.adoptame.presentation.Asociaciones.viewmodel.AsociacionesUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

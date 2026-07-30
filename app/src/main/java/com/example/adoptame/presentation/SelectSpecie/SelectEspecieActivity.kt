@@ -1,5 +1,6 @@
 package com.example.adoptame.presentation.SelectSpecie
 
+import SelectSpecieScreen
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,16 +18,15 @@ class SelectEspecieActivity : ComponentActivity() {
 
                 SelectSpecieScreen(
 
-                    onDogClick = {
+                    onDogs = {
                         navigateFormulario("1")
                     },
 
-                    onCatClick = {
+                    onCats = {
                         navigateFormulario("2")
                     }
 
                 )
-
             }
         }
     }
